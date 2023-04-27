@@ -47,7 +47,7 @@ namespace BattleScripts
         public int CalcPower()
         {
             int kHealth = CalcKHealth();
-            float moneyRatio = _moneyPlayer / KMoney;
+            float moneyRatio = _moneyPlayer * KMoney / kHealth;
             float powerRatio = _powerPlayer / KPower;
 
             return (int)(moneyRatio + kHealth + powerRatio);
