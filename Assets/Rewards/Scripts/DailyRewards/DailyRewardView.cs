@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Rewards
-{
+{ 
     internal class DailyRewardView : MonoBehaviour
     {
         private const string CurrentSlotInActiveKey = nameof(CurrentSlotInActiveKey);

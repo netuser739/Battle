@@ -6,20 +6,20 @@ using Object = UnityEngine.Object;
 
 namespace Rewards
 {
-    internal class DailyRewardController
+    internal class BaseRewardController
     {
-        private readonly DailyRewardView _view;
+        private readonly BaseRewardView _view;
         private List<ContainerSlotRewardView> _slots;
         private Coroutine _coroutine;
         private bool _isInitialized;
         private bool _isGetReward;
 
-        public DailyRewardController(DailyRewardView view) => 
+        public BaseRewardController(BaseRewardView view) =>
             _view = view;
 
         public void Init()
         {
-            if (_isInitialized) 
+            if (_isInitialized)
                 return;
 
             InitSlots();
@@ -32,7 +32,7 @@ namespace Rewards
 
         public void Deinit()
         {
-            if(!_isInitialized) 
+            if (!_isInitialized)
                 return;
 
             DeinitSlots();
@@ -46,7 +46,7 @@ namespace Rewards
         {
             _slots = new List<ContainerSlotRewardView>();
 
-            for(int i = 0; i < _view.Rewards.Count; i++) 
+            for (int i = 0; i < _view.Rewards.Count; i++)
             {
                 ContainerSlotRewardView instanceSlot = CreateSlotRewardView();
                 _slots.Add(instanceSlot);
@@ -102,11 +102,11 @@ namespace Rewards
 
         private void ClaimReward()
         {
-            if(!_isGetReward) 
+            if (!_isGetReward)
                 return;
 
             Reward reward = _view.Rewards[_view.CurrentSlotInActive];
-            
+
             switch (reward.RewardType)
             {
                 case RewardType.Wood:
@@ -127,12 +127,12 @@ namespace Rewards
         private void RefreshRewardState()
         {
             bool gotRewardEarlier = _view.TimeGetReward.HasValue;
-            if(!gotRewardEarlier)
+            if (!gotRewardEarlier)
             {
                 _isGetReward = true;
                 return;
             }
-            
+
             TimeSpan timeFromLastRewardGetting = DateTime.UtcNow - _view.TimeGetReward.Value;
 
             bool isDeadLineElapsed = timeFromLastRewardGetting.Seconds >= _view.TimeDeadline;
@@ -164,12 +164,12 @@ namespace Rewards
             if (_isGetReward)
                 return "The reward is ready to be received!";
 
-            if(_view.TimeGetReward.HasValue)
+            if (_view.TimeGetReward.HasValue)
             {
                 DateTime nextClaimTime = _view.TimeGetReward.Value.AddSeconds(_view.TimeCooldown);
                 TimeSpan currentClaimCooldown = nextClaimTime - DateTime.UtcNow;
 
-                string timeGetReward = 
+                string timeGetReward =
                     $"{currentClaimCooldown.Days:D2}:{currentClaimCooldown.Hours:D2}:" +
                     $"{currentClaimCooldown.Minutes:D2}:{currentClaimCooldown.Seconds:D2}";
 
@@ -181,7 +181,7 @@ namespace Rewards
 
         private void RefreshSlots()
         {
-            for(int i = 0; i < _view.Rewards.Count; i++)
+            for (int i = 0; i < _view.Rewards.Count; i++)
             {
                 Reward reward = _view.Rewards[i];
                 int countDay = i + 1;

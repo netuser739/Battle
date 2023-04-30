@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 528278111060782945}
   - component: {fileID: 528278111060782946}
   - component: {fileID: 528278111060782947}
-  - component: {fileID: 596404490020634694}
+  - component: {fileID: -9221998057825657928}
   m_Layer: 5
   m_Name: Rewards Window
   m_TagString: Untagged
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &596404490020634694
+--- !u!114 &-9221998057825657928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,18 +115,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 528278111060782940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c8fea61a6408746892d7342022bfa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ff4621f053070643acf0431d7067b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TimeCooldown>k__BackingField: 86400
-  <TimeDeadline>k__BackingField: 172800
+  Period: 1
   <Rewards>k__BackingField:
   - <RewardType>k__BackingField: 0
     <IconCurrency>k__BackingField: {fileID: 21300000, guid: e0eac6b76fdd842e88a7f8c75ecffaf4, type: 3}
-    <CountCurrency>k__BackingField: 200
+    <CountCurrency>k__BackingField: 500
   - <RewardType>k__BackingField: 1
     <IconCurrency>k__BackingField: {fileID: 21300000, guid: f59401c5c79564fd1ae3bfb0876455a7, type: 3}
-    <CountCurrency>k__BackingField: 5
+    <CountCurrency>k__BackingField: 20
+  - <RewardType>k__BackingField: 0
+    <IconCurrency>k__BackingField: {fileID: 21300000, guid: e0eac6b76fdd842e88a7f8c75ecffaf4, type: 3}
+    <CountCurrency>k__BackingField: 1000
+  - <RewardType>k__BackingField: 1
+    <IconCurrency>k__BackingField: {fileID: 21300000, guid: f59401c5c79564fd1ae3bfb0876455a7, type: 3}
+    <CountCurrency>k__BackingField: 100
   <TimerNewReward>k__BackingField: {fileID: 528278111367900167}
   <MountRootSlotsReward>k__BackingField: {fileID: 528278111138401732}
   <ContainerSlotRewardPrefab>k__BackingField: {fileID: 174913437405159311, guid: 059103fc5972c544fadad862e12b12be, type: 3}
