@@ -342,7 +342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9221998057825657928, guid: a9ae71090c279b248bbe45a9207b29b0, type: 3}
       propertyPath: Period
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -9221998057825657928, guid: a9ae71090c279b248bbe45a9207b29b0, type: 3}
       propertyPath: m_Enabled

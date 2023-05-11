@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Rewards/Scenes/DailyRewards.unity
     guid: 56e7c2302ed9ac742a5276dd6b5b29d4
+  - enabled: 1
+    path: Assets/TweenAnim/Scenes/Tween.unity
+    guid: 916532cde8430438690c1d93bf1ef6e1
   m_configObjects: {}
